@@ -1,33 +1,35 @@
-package com.postfix.models;
+package models;
 
 import java.util.Vector;
+import javax.lang.model.element.Element;
 
 public class Stack {
     private Vector<Object> stack;
     private int size;
 
+
+
     public Stack() {
-        stack = new Vector<Object>();
-        size = 0;
+        Vector<Object> stack = new Vector<Object>();
+
     }
-    public void push(Object element) {
+    public void  push(Object element) {
         stack.add(element);
         size++;
     }
 
-    public Object pop() {
+    public Element pop() {
         if (size == 0) {
             return null;
         }
         size--;
-        return stack.remove(size);
+        return (Element) stack.remove(size);
     }
-    
-    public Object peek() {
+    public Element peek() {
         if (size == 0) {
             return null;
         }
-        return stack.get(size - 1);
+        return (Element) stack.get(size - 1);
     }
 
 }
