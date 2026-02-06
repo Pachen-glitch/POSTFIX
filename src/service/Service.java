@@ -1,6 +1,7 @@
 package service;
 
 
+import javax.lang.model.element.Element;
 import models.Stack;
 
 public class Service {
@@ -62,8 +63,8 @@ public class Service {
             
         }
     }
-    public void imprimirResultado() {
-        System.out.println("El resultado es: " + resultado);
+    public Element imprimirResultado() {
+        return stack.peek();
     }   
 
 
