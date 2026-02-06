@@ -1,7 +1,7 @@
 package controller;
 import javax.lang.model.element.Element;
 import service.Service;
-public class controlador {
+public class Controlador {
     private Service service = new service.Service();
     public void leerData(String data) {
             service.setData(data);}
