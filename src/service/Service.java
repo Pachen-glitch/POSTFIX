@@ -57,10 +57,14 @@ public class Service {
                 resultado = b / a;
                 pushElement(resultado);
             } else {
+                pushElement(element);  
             }
-            pushElement(element);   
+            
         }
     }
+    public void imprimirResultado() {
+        System.out.println("El resultado es: " + resultado);
+    }   
 
 
 }
