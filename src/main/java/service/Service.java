@@ -1,8 +1,8 @@
-package service;
+package main.java.service;
 
 
 import javax.lang.model.element.Element;
-import models.Stack;
+import main.java.models.Stack;
 
 public class Service {
     private  Stack stack= new Stack();

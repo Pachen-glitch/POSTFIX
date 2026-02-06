@@ -1,5 +1,5 @@
-package controller;
-import service.Service;
+package main.java.controller;
+import main.java.service.Service;
 
 public class controlador {
 

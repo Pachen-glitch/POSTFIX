@@ -16,10 +16,10 @@ Para crear el stack se creo una clase Stack que utiliza un Vector para almacenar
 
 */
 
-package view;
+package main.java.view;
 
 import java.util.Scanner;
-import controller.controlador;
+import main.java.controller.controlador;
 
 public class App {
     private controlador controlador;
