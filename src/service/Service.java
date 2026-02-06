@@ -17,8 +17,11 @@ public class Service {
         stack.push(element);
     }
     public Object popElement() {
-        return stack.pop();
+    if (stack.isEmpty()) {
+        throw new RuntimeException("Error: operandos insuficientes en la expresión postfix");
     }
+    return stack.pop();
+}
     public Object peekElement() {
         return stack.peek();
     }
@@ -37,34 +40,47 @@ public class Service {
     public void leerData() {
         String[] elements = data.split(" ");
         for (String element : elements) {
-            if (element=="+"){
+            System.out.println("Procesando elemento: " + element);
+            if (element.equals("+")){
                 int a = (int) popElement();
                 int b = (int) popElement();
                 resultado = a + b;
                 pushElement(resultado);
-            } else if (element=="-"){
+            } else if (element.equals("-")){
                 int a = (int) popElement();
                 int b = (int) popElement();
                 resultado = b - a;
                 pushElement(resultado);
-            } else if (element=="*"){
+            } else if (element.equals("*")){
                 int a = (int) popElement();
                 int b = (int) popElement();
                 resultado = a * b;
                 pushElement(resultado);
-            } else if (element=="/"){
+            } else if (element.equals("/")){
                 int a = (int) popElement();
                 int b = (int) popElement();
+                 if (a == 0) {
+                throw new ArithmeticException("División entre cero");
+            }
                 resultado = b / a;
                 pushElement(resultado);
             } else {
-                pushElement(element);  
+                
+                    try {
+                        int numero = Integer.parseInt(element);
+                        pushElement(numero);
+                    } catch (NumberFormatException e) {
+                        throw new RuntimeException("Token inválido " + element);
+                    }
             }
             
         }
     }
-    public Element imprimirResultado() {
-        return stack.peek();
+    public Object imprimirResultado() {
+        Object resultado = peekElement();
+        stack.pop();//vacia la pila para otra operacion
+        return resultado;
+
     }   
 
 

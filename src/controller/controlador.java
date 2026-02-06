@@ -1,14 +1,23 @@
 package controller;
-import javax.lang.model.element.Element;
 import service.Service;
-public class Controlador {
-    private Service service = new service.Service();
+
+public class controlador {
+
+    private Service service;
+
+    public controlador() {
+        this.service = new Service();
+    }
+
     public void leerData(String data) {
-            service.setData(data);}
+        service.setData(data);
+    }
+
     public void procesarData() {
         service.leerData();
     }
-    public Element imprimirResultado() {
+
+    public Object imprimirResultado() {
         return service.imprimirResultado();
     }
             
